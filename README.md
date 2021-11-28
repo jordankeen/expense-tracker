@@ -1,3 +1,11 @@
+Expense Tracker tutorial:
+
+https://www.youtube.com/watch?v=q6LNf3QzgXQ
+https://xpensr-or.web.app/
+
+2:31:42
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

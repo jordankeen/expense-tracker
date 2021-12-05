@@ -1,0 +1,22 @@
+
+.sidebar {
+   width: 300px;
+   background: $purple;
+   min-height: 100%;
+   color: white;
+}
+.sidebar-nav {
+   margin: 0;
+   padding: 60px 0;
+   list-style-type: none;
+   a {
+      color: $white;
+      display: block;
+      padding: 20px 0 20px 110px;
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+         background-color: #263888;
+      }
+   }
+}

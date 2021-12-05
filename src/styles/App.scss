@@ -1,0 +1,22 @@
+/* Imports */
+@import './_normalize.scss';
+@import './_variables.scss';
+@import './_SideBar.scss';
+
+body {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background:$white;
+}
+a {
+	text-decoration: none;
+	outline: 0;
+}
+img {
+	width: 100%;
+	max-width: 100%;
+}
+.page-container {
+   display: flex;
+   min-height: 100vh;
+}

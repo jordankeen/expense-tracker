@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, DELETE_EXPENSE, SEARCH_EXPENSE } from "../action-types/expenses";
+import { ADD_EXPENSE, DELETE_EXPENSE, SEARCH_EXPENSE, SORT_BY_DATE, SORT_BY_AMOUNT, FILTER_BY_CATEGORY } from "../action-types/expenses";
 
 // check if local storage
 const initialList = () => {
@@ -13,6 +13,8 @@ const initialList = () => {
 const initialState = {
    expenseList: initialList(),
    query: '',
+   sortBy: 'date',
+   category: ''
 };
 // expense Reducer
 export const expenseReducer = (state = initialState, action) => {
@@ -42,7 +44,26 @@ export const expenseReducer = (state = initialState, action) => {
          return {
             ...state,
             query,
-         }
+         };
+      }
+      case SORT_BY_DATE: {
+         return {
+            ...state,
+            sortBy: 'date'
+         };
+      }
+      case SORT_BY_AMOUNT: {
+         return {
+            ...state,
+            sortBy: 'amount'
+         };
+      }
+      case FILTER_BY_CATEGORY: {
+         const { category } = action;
+         return {
+            ...state,
+            category
+         };
       }
       default: 
          return state;

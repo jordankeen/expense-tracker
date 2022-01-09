@@ -1,22 +1,118 @@
 
 .sidebar {
-   width: 300px;
+   width: 260px;
    background: $purple;
    min-height: 100%;
    color: white;
-}
-.sidebar-nav {
-   margin: 0;
    padding: 60px 0;
+   position: fixed;
+}
+.sidebar__header {
+   padding: 0 53px;
+   img {
+      border-radius: 50%;
+      max-width: 93px;
+      margin: 0 auto 10px;
+      display: block;
+   }
+   p {
+      text-align: center;
+   }
+}
+.sidebar__nav {
+   margin: 0;
+   padding: 140px 0;
    list-style-type: none;
+   span {
+      position: relative;
+   }
+   span::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      left: -40px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+      position: absolute;
+   }
+   span.expenses::before {
+      background-image: url('../assets/images/receipt-solid.svg');
+   }
+   span.summary::before {
+      background-image: url('../assets/images/chart-bar-regular.svg');
+   }
+   span.about::before {
+      background-image: url('../assets/images/cog-solid.svg');
+   }
    a {
       color: $white;
+      font-size: 17px;
+      width: 100%;
       display: block;
-      padding: 20px 0 20px 110px;
+      padding: 20px 0 20px 111px;
       background-color: transparent;
       transition: background-color 0.3s ease-in-out;
+      border-left: 5px solid transparent;
       &:hover {
          background-color: #263888;
+         border-color: $orange;
+      }
+      &.active {
+         border-color: $orange;
+         background-color: #263888;
+      }
+   }
+}
+.sidebar__logo {
+   max-width: 155px;
+   width: 100%;
+   position: absolute;
+   bottom: 50px;
+   left: 50%;
+   transform: translateX(-50%);
+   .mobile-logo {
+      display: none;
+   }
+}
+
+@media only screen and (max-width: 1200px) {
+   .sidebar {
+      width: 80px;
+   }
+   .sidebar__header {
+      padding: 0;
+      img {
+         max-width: 50px;
+      }
+      p {
+         display: none;
+      }
+   }
+   .sidebar__nav {
+      padding: 100px 0 0;
+      span::before {
+         left: 50%;
+         transform: translateX(-50%);
+         top: -26px;
+         width: 15px;
+         height: 15px;
+      }
+      a {
+         padding: 46px 0 20px;
+         text-align: center;
+         font-size: 12px;
+         border-left: none;
+      }
+   }
+   .sidebar__logo {
+      max-width: 43px;
+      .mobile-logo {
+         display: block;
+      }
+      .desktop-logo {
+         display: none;
       }
    }
 }

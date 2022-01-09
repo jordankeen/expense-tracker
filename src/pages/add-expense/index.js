@@ -1,13 +1,21 @@
-import React from 'react'
-import AddForm from '../../components/add-form';
-import TopFold from '../../components/topfold';
-import './add-expense.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SideBar from '../../components/SideBar';
+import AddExpenseForm from '../../components/AddExpenseForm';
 
 const AddExpense = () => {
    return (
-      <div className="add-expense">
-         <TopFold />
-         <AddForm />
+      <div className="page-container">
+         <SideBar />
+         <div className="main-content">
+            <div className="top-bar">
+               <h1>New Expense</h1>
+               <div className="add-expense-button-container">
+                  <Link to="/">Back</Link>
+               </div>
+            </div>
+            <AddExpenseForm />
+         </div>
       </div>
    )
 }

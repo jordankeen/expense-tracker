@@ -18,3 +18,19 @@ export const searchExpense = (query) => {
       query,
    };
 };
+export const sortByDate = () => {
+   return {
+      type: 'SORT_BY_DATE',
+   };
+};
+export const sortByAmount = () => {
+   return {
+      type: 'SORT_BY_AMOUNT',
+   };
+};
+export const filterByCategory = (category) => {
+   return {
+      type: 'FILTER_BY_CATEGORY',
+      category,
+   };
+};

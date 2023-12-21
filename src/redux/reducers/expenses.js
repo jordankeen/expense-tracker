@@ -1,4 +1,5 @@
-import { ADD_EXPENSE, DELETE_EXPENSE, SEARCH_EXPENSE, SORT_BY_DATE, SORT_BY_AMOUNT, FILTER_BY_CATEGORY } from "../action-types/expenses";
+import { ADD_EXPENSE, DELETE_EXPENSE, EDIT_EXPENSE, SEARCH_EXPENSE, SORT_BY_DATE, SORT_BY_AMOUNT, FILTER_BY_CATEGORY } from "../action-types/expenses";
+import DefaultItems from "../../data/DefaultItems";
 
 // check if local storage
 const initialList = () => {
@@ -6,6 +7,9 @@ const initialList = () => {
    let expenses = [];
    if (list) {
       expenses = JSON.parse(list);
+   } else {
+      expenses = DefaultItems;
+      localStorage.setItem('expense-tracker-list', JSON.stringify(expenses));
    }
    return expenses;
 }
@@ -24,19 +28,39 @@ export const expenseReducer = (state = initialState, action) => {
          localStorage.setItem('expense-tracker-list', JSON.stringify([...state.expenseList, action.data]));
          return {
             ...state,
-            expenseList: [...state.expenseList, action.data],
+            expenseList: [...state.expenseList, action.data]
          };
       }
       case DELETE_EXPENSE: {
          const { data } = action;
          const updatedList = state.expenseList.filter(
-            item => item.createdAt !== data.createdAt
+            item => item.id !== data.id
          );
          // update local storage
          localStorage.setItem('expense-tracker-list', JSON.stringify(updatedList));
          return {
             ...state,
-            expenseList: updatedList,
+            expenseList: updatedList
+         };
+      }
+      case EDIT_EXPENSE: {
+         const { id, data } = action;
+         // Find item with id, and update
+         const itemUpdates = state.expenseList.map(item => {
+            if (item.id === id) {
+               return {
+                  ...item,
+                  ...data
+               }
+            } else {
+               return item;
+            }
+         });
+         // update local storage
+         localStorage.setItem('expense-tracker-list', JSON.stringify(itemUpdates));
+         return {
+            ...state,
+            expenseList: itemUpdates
          };
       }
       case SEARCH_EXPENSE: {

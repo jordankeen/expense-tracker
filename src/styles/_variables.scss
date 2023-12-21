@@ -2,25 +2,30 @@
 Stylesheet: Variables Stylesheet
 ******************************************************************/
 
-// // font imports 
-// @font-face {
-//    font-family: 'jaapokki enchance';
-//    src: url('./assets/fonts/jaapokkienchance-regular.eot'); /* IE9 Compat Modes */
-//    src: 
-//         url('./assets/fonts/jaapokkienchance-regular.woff') format('woff'), /* Pretty Modern Browsers */
-//         url('./assets/fonts/jaapokkienchance-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-//         url('./assets/fonts/jaapokkienchance-regular.svg') format('svg'); /* Legacy iOS */
-//  }
-
+// font imports 
+@font-face {
+   font-family: 'menloregular';
+   src: url('../assets/fonts/menlo-regular-webfont.eot');
+   src: url('../assets/fonts/menlo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/menlo-regular-webfont.woff2') format('woff2'),
+        url('../assets/fonts/menlo-regular-webfont.woff') format('woff'),
+        url('../assets/fonts/menlo-regular-webfont.ttf') format('truetype'),
+        url('../assets/fonts/menlo-regular-webfont.svg#menloregular') format('svg');
+   font-weight: normal;
+   font-style: normal;
+}
+// Menlo font
+$font1: 'menloregular', sans-serif;
  
- // font declarations
-//  $font1: 'jaapokki enchance', sans-serif;
- 
- // Color Variables
- $white: #fff;
- $black: #1b1b1b;
- $yellow: #ffd600;
- $grey: #5a5a5a;
+// Color Variables
+$white: #fff;
+$black: #1b1b1b;
+$yellow: #ffd600;
+$grey: #5a5a5a;
+$focusblue: #2262f5;
+$purple: #2e46ae;
+$orange: #f05a56;
+$inputbg: #e3e3e3;
 
- $purple: #2e46ae;
- $orange: #f05a56;
+$radius: 3px;
+$shadow: 0px 5px 6px rgba(0,0,0,0.08);

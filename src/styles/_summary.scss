@@ -1,0 +1,85 @@
+.summary-page-container {
+   max-width: 1100px;
+   margin: 0 -15px;
+}
+.summary-page-inner {
+   display: flex;
+   flex-wrap: wrap;
+}
+.summary-page-totals {
+   width: 100%;
+}
+.summary-totals {
+   display: flex;
+   flex-wrap: wrap;
+   margin-bottom: 30px;
+}
+.summary-totals__item {
+   padding: 0 15px 15px;
+}
+.summary-totals__title {
+   margin: 0;
+   font-size: 14px;
+   color: $orange;
+}
+.summary-totals__amount {
+   margin: 0;
+   font-size: 22px;
+   color: $purple;
+   font-weight: bold;
+}
+.summary-page-donut-chart {
+   width: 40%;
+   padding: 0 15px 15px;
+}
+.summary-page-bar-chart {
+   width: 60%;
+   padding: 0 15px 15px;
+}
+.bar-chart {
+   max-height: 350px;
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+@media only screen and (max-width: 1400px) {
+   .bar-chart {
+      max-height: 280px;
+   }
+   .summary-totals__title {
+      font-size: 12px;
+   }
+   .summary-totals__amount {
+      font-size: 19px;
+   }
+}
+@media only screen and (max-width: 992px) {
+   .summary-page-donut-chart {
+      width: 80%;
+      max-width: 520px;
+   }
+   .summary-page-bar-chart {
+      width: 100%;
+      min-height: 520px;
+   }
+   .summary-totals__item {
+      width: 33.33%;
+   }
+   .bar-chart {
+      max-height: 425px;
+   }
+}
+@media only screen and (max-width: 768px) {
+   .summary-page-donut-chart {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+}
+@media only screen and (max-width: 480px) {
+   .summary-totals__item {
+      width: 50%;
+      &:first-child {
+         width: 100%;
+      }
+   }
+}

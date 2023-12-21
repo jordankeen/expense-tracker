@@ -3,19 +3,21 @@ import {
    BrowserRouter as Router,
    Routes,
 } from "react-router-dom";
-// import Header from "./components/header";
-import AddExpense from "./pages/add-expense";
-import Home from "./pages/home";
+import AddExpense from "./pages/AddExpense";
+import EditExpense from "./pages/EditExpense";
+import Expenses from "./pages/Expenses";
+import SummaryPage from "./pages/SummaryPage";
+// import StartPage from "./pages/StartPage";
 import './styles/App.scss';
-
 
 function App() {
   return (
-   <Router>
-      {/* <Header /> */}
+   <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-         <Route path="/" exact element={<Home />} />
+         <Route path="/" exact element={<Expenses />} />
          <Route path="/add-expense" element={<AddExpense/>} />
+         <Route path="/edit-expense/:id" element={<EditExpense/>} />
+         <Route path="/summary" element={<SummaryPage/>} />
       </Routes>
    </Router>
   );

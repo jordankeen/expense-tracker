@@ -1,6 +1,5 @@
 
-export default (expenses, query, sortBy, category) => {
-   // console.log(sortBy);
+const expenses = (expenses, query, sortBy, category) => {
    return expenses.filter((expense) => {
       // check if query is in title
       const textMatch = expense.title.toLowerCase().includes(query.toLowerCase());
@@ -14,6 +13,10 @@ export default (expenses, query, sortBy, category) => {
          return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === 'amount') {
          return a.amount < b.amount ? 1 : -1;
+      } else {
+         return;
       }
    });
 };
+
+export default expenses;

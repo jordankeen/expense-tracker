@@ -6,7 +6,7 @@ const ExpenseListFilters = () => {
    const [query, setQuery] = useState("");
 
    const dispatch = useDispatch();
-   const { sortBy, category } = useSelector((state) => state.expenses);
+   const { sortBy, category, query: storeQuery } = useSelector((state) => state.expenses);
 
    const handleQuery = (e) => {
       setQuery(e.target.value);
@@ -22,25 +22,33 @@ const ExpenseListFilters = () => {
    const handleCategoryFilter = (e) => {
       dispatch(filterByCategory(e.target.value));
    }
+   const resetSearch = () => {
+      setQuery('');
+      dispatch(searchExpense(''));
+      document.querySelector('.search').focus();
+   }
    return (
       <div className="expense-list-filters">
          <div className="expense-list-search-container">
             <input 
+               className="input-style search"
                placeholder="Search.."
-               value={query}
+               value={storeQuery ? storeQuery : query}
                onChange={(e) => handleQuery(e)}
             />
+            {storeQuery || query ? <button className="search-reset" onClick={resetSearch}><span className="sr-only">clear input</span></button> : null}
          </div>
-         <div>
-            <select className="" onChange={(e) => handleSortFilter(e)} value={sortBy}>
+         <div className="select-filters">
+            <select className="select-filter-style sort-filter" onChange={(e) => handleSortFilter(e)} value={sortBy}>
                <option value="date">Date</option>
                <option value="amount">Amount</option>
             </select>
-         </div>
-         <div>
-            <select className="" onChange={(e) => handleCategoryFilter(e)} value={category}>
+            <select className="select-filter-style category-filter" onChange={(e) => handleCategoryFilter(e)} value={category}>
                <option value="">All Categories</option>
                <option value="grocery">Grocery</option>
+               <option value="housing">Housing</option>
+               <option value="other">Other</option>
+               <option value="entertainment">Entertainment</option>
                <option value="transportation">Transportation</option>
                <option value="utilities">Utilities</option>
             </select>
